@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Квиз{% endblock %}
+{% block content %}
+    <h2>Вопросы викторины</h2>
+    <form class="form-quiz" method="POST" action="{{ url_for('check_quiz', quiz_id=quiz_id) }}">
+        {% for q in questions %}
+            <div class="quiz" style="margin-bottom: 20px;">
+                <h3>{{ loop.index }}. {{ q.question }}</h3>
+                <div class="radio-buttons">
+                    {% for option in q.options %}
+                        <div class="form_radio_btn">
+                            <input type="radio" name="question_{{ q.id }}" value="{{ option }}" id="q{{ q.id }}_{{ loop.index0 }}" required>
+                            <label for="q{{ q.id }}_{{ loop.index0 }}">{{ option }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+        <button class="btn" type="submit">Проверить ответы</button>
+    </form>
+    <p><a href="{{ url_for('index') }}">Назад к списку</a></p>
+{% endblock %}

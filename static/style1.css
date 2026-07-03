@@ -1,0 +1,184 @@
+/* Основные цвета вдохновлены Genshin Impact (золото, тёмный синий, небесный) */
+body {
+  background: linear-gradient(135deg, #0b1a2e 0%, #1a2f3f 100%);
+  color: #e8e0d0;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  min-height: 100vh;
+}
+
+.container {
+  background: rgba(20, 30, 45, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 30px;
+  padding: 30px 40px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 1px solid #c9a84c;
+}
+
+h1 {
+  color: #f7e7b4;
+  text-shadow: 0 0 20px rgba(201, 168, 76, 0.5);
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #c9a84c;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+}
+
+/* Список викторин – карточки-ссылки */
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+ul li {
+  flex: 0 1 280px;
+}
+
+ul li a {
+  display: block;
+  background: rgba(40, 60, 80, 0.6);
+  padding: 25px 20px;
+  border-radius: 18px;
+  text-align: center;
+  text-decoration: none;
+  color: #f0e6d0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  border: 1px solid #7a8a9a;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 0 #0b141e;
+}
+
+ul li a:hover {
+  transform: translateY(-5px);
+  background: rgba(60, 90, 120, 0.8);
+  border-color: #c9a84c;
+  box-shadow: 0 12px 0 #0b141e, 0 0 25px rgba(201, 168, 76, 0.3);
+  color: #fff8e0;
+}
+
+/* Стили для формы вопросов */
+form {
+  margin-top: 20px;
+}
+
+.question-block {
+  background: rgba(30, 50, 70, 0.5);
+  border-radius: 16px;
+  padding: 20px 25px;
+  margin-bottom: 25px;
+  border-left: 4px solid #c9a84c;
+  transition: 0.2s;
+}
+
+.question-block:hover {
+  background: rgba(40, 60, 85, 0.6);
+}
+
+.question-block p strong {
+  color: #f7e7b4;
+  font-size: 1.2rem;
+}
+
+.question-block label {
+  display: block;
+  padding: 8px 15px;
+  margin: 5px 0;
+  border-radius: 30px;
+  background: rgba(50, 70, 90, 0.3);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.question-block label:hover {
+  background: rgba(201, 168, 76, 0.2);
+}
+
+.question-block input[type="radio"] {
+  margin-right: 12px;
+  accent-color: #c9a84c;
+  transform: scale(1.2);
+}
+
+/* Кнопка проверки */
+button[type="submit"] {
+  background: #c9a84c;
+  border: none;
+  padding: 14px 45px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #0b1a2e;
+  border-radius: 60px;
+  box-shadow: 0 8px 0 #7a6530;
+  transition: all 0.15s ease;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 11px 0 #7a6530;
+  background: #ddc06a;
+}
+
+button[type="submit"]:active {
+  transform: translateY(6px);
+  box-shadow: 0 2px 0 #7a6530;
+}
+
+/* Ссылка "Назад" и другие ссылки */
+a {
+  color: #c9a84c;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+a:hover {
+  color: #f7e7b4;
+  text-shadow: 0 0 12px rgba(201, 168, 76, 0.5);
+}
+
+/* Результат */
+.result-box {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(30, 50, 70, 0.4);
+  border-radius: 30px;
+  border: 1px solid #c9a84c;
+}
+
+.result-box p {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.result-box span.correct {
+  color: #8bc34a;
+  font-weight: 700;
+}
+
+.result-box span.total {
+  color: #f7e7b4;
+  font-weight: 700;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .container {
+      padding: 20px 15px;
+  }
+  ul li {
+      flex: 1 1 100%;
+  }
+  .question-block label {
+      font-size: 0.95rem;
+  }
+}
