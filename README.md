@@ -143,7 +143,7 @@ quiz-genshin/
 
 ## ✍️ Автор
 
-**Ваше Имя** – [GitHub](https://github.com/demhev)
+**DemHev** – [GitHub](https://github.com/demhev)
 
 ---
 
