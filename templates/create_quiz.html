@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Создать новый опрос{% endblock %}
+
+{% block content %}
+<h1>📝 Создать новый опрос</h1>
+<form method="POST" id="quizForm">
+    <div class="mb-4">
+        <label for="quiz_name" class="form-label">Название опроса</label>
+        <input type="text" class="form-control" id="quiz_name" name="quiz_name" placeholder="Введите название" required>
+    </div>
+
+    <h4>Вопросы</h4>
+    <div id="questionsContainer">
+        <!-- Шаблон первого вопроса (будет добавлен через JS) -->
+    </div>
+
+    <button type="button" class="btn btn-secondary me-2" onclick="addQuestion()">➕ Добавить вопрос</button>
+    <button type="submit" class="btn btn-success">💾 Сохранить опрос</button>
+</form>
+
+<script>
+    let questionCount = 0;
+
+    function addQuestion() {
+        const container = document.getElementById('questionsContainer');
+        const block = document.createElement('div');
+        block.className = 'question-block p-3 mb-3 border rounded';
+        block.style.backgroundColor = 'rgba(255,255,255,0.05)';
+        block.innerHTML = `
+            <h5>Вопрос #${questionCount + 1}</h5>
+            <div class="mb-2">
+                <label class="form-label">Текст вопроса</label>
+                <input type="text" class="form-control" name="question[]" required>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-2">
+                    <label class="form-label text-success">✅ Правильный ответ</label>
+                    <input type="text" class="form-control" name="answer[]" required>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <label class="form-label text-danger">❌ Неправильный ответ 1</label>
+                    <input type="text" class="form-control" name="wrong1[]" required>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <label class="form-label text-danger">❌ Неправильный ответ 2</label>
+                    <input type="text" class="form-control" name="wrong2[]" required>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <label class="form-label text-danger">❌ Неправильный ответ 3</label>
+                    <input type="text" class="form-control" name="wrong3[]" required>
+                </div>
+            </div>
+            <button type="button" class="btn btn-outline-danger btn-sm" onclick="this.parentElement.remove()">🗑 Удалить вопрос</button>
+            <hr>
+        `;
+        container.appendChild(block);
+        questionCount++;
+    }
+
+    // При загрузке страницы добавляем первый вопрос
+    window.onload = function() {
+        addQuestion();
+    };
+</script>
+{% endblock %}
