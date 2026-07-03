@@ -31,8 +31,8 @@
 
 ### Клонирование репозитория
 ```bash
-git clone https://github.com/ваш-username/quiz-genshin.git
-cd quiz-genshin
+[git clone https://github.com/ваш-username/quiz-genshin.git](https://github.com/demhev/Quiz.git)
+cd quiz
 ```
 
 ### Установка зависимостей (рекомендуется виртуальное окружение)
